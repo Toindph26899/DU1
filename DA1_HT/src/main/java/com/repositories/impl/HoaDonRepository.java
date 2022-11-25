@@ -40,20 +40,9 @@ public class HoaDonRepository implements IHoaDonRepotirory {
         Transaction transaction = null;
         int result = 0;
         try ( Session session = HibernateUtils.getFACTORY().openSession()) {
-            String hql = "INSERT INTO HoaDon(Ma, IdNhanVien, TenKh, NgayTao, NgayThanhToan, TinhTrang) "
-                    +    "SELECT Ma, IdNhanVien, TenKh, NgayTao, NgayThanhToan, TinhTrang FROM HoaDon";
-
+            
             transaction = session.beginTransaction();
-            Query query = session.createQuery(hql);
-            query.setParameter("Ma", hd.getMa());
-            query.setParameter("IdNhanVien", hd.getIdNhanVien());
-            query.setParameter("TenKh", hd.getTenKh());
-            query.setParameter("NgayTao", hd.getNgayTao());
-            query.setParameter("NgayThanhToan", hd.getNgayThanhToan());
-            query.setParameter("TinhTrang", hd.getTinhTrang());
-
-            result = query.executeUpdate();
-//            session.save(hd);
+            session.save(hd);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -144,16 +133,17 @@ public class HoaDonRepository implements IHoaDonRepotirory {
 
         HoaDon hd = new HoaDon();
 
-        hd.setMa("HD2000");
+        hd.setMa("HD123");
         hd.setIdNhanVien(null);
         hd.setTenKh("Pham Anh Tuan");
         hd.setNgayTao(new Date());
         hd.setNgayThanhToan(new Date());
         hd.setTinhTrang(1);
-
+        
+        h.add(hd);
 //        h.update(hd, "4e3e957b-2fb9-4c50-a6b1-84c1a08cec5d");
 //        h.delete("4e3e957b-2fb9-4c50-a6b1-84c1a08cec5d");
 //        System.out.println(h.listHdToChuaThanhToan(0));
-        System.out.println(h.getHoaDonView());
+//        System.out.println(h.getHoaDonView());
     }
 }
