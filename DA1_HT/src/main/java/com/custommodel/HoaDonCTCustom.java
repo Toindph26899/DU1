@@ -8,14 +8,14 @@ public class HoaDonCTCustom {
     private String idHoaDon;
     private String idChiTietSP;
     private String tenSP;
-    private int soLuong;
+    private Integer soLuong;
     private BigInteger donGia;
-    private int trangThai;
+    private Integer trangThai;
 
     public HoaDonCTCustom() {
     }
 
-    public HoaDonCTCustom(String id, String idHoaDon, String idChiTietSP, String tenSP, int soLuong, BigInteger donGia, int trangThai) {
+    public HoaDonCTCustom(String id, String idHoaDon, String idChiTietSP, String tenSP, Integer soLuong, BigInteger donGia, Integer trangThai) {
         this.id = id;
         this.idHoaDon = idHoaDon;
         this.idChiTietSP = idChiTietSP;
@@ -57,11 +57,11 @@ public class HoaDonCTCustom {
         this.tenSP = tenSP;
     }
 
-    public int getSoLuong() {
+    public Integer getSoLuong() {
         return soLuong;
     }
 
-    public void setSoLuong(int soLuong) {
+    public void setSoLuong(Integer soLuong) {
         this.soLuong = soLuong;
     }
 
@@ -73,11 +73,11 @@ public class HoaDonCTCustom {
         this.donGia = donGia;
     }
 
-    public int getTrangThai() {
+    public Integer getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(Integer trangThai) {
         this.trangThai = trangThai;
     }
 

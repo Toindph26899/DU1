@@ -1,19 +1,27 @@
 package com.view;
 
 import com.custommodel.ChiTietSPCustom;
+import com.custommodel.HoaDonCTCustom;
 import com.custommodel.HoaDonCustom;
+import com.entities.HoaDon;
+import com.entities.HoaDonChiTiet;
 import com.services.IChiTietSPService;
+import com.services.IHoaDonChiTietService;
 import com.services.IHoaDonService;
 import com.services.impl.ChiTietSPService;
+import com.services.impl.HoaDonChiTietService;
 import com.services.impl.HoaDonService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class JPBanHang extends javax.swing.JPanel {
-    
+
     private IHoaDonService iHoaDonService = new HoaDonService();
     private IChiTietSPService iChiTietSPService = new ChiTietSPService();
-    
+    private IHoaDonChiTietService iHoaDonChiTietService = new HoaDonChiTietService();
+    private ArrayList<HoaDonCTCustom> listHDCTCustom = new ArrayList<>();
+
     public JPBanHang() {
         initComponents();
         loadTableHoaDon(iHoaDonService.getListHoaDon());
@@ -29,7 +37,7 @@ public class JPBanHang extends javax.swing.JPanel {
                 stt,
                 hd.getMaHD(),
                 hd.getTenNhanVien(),
-                hd.getTenKh(), 
+                hd.getTenKh(),
                 hd.getNgayTao(),
                 hd.getNgayThanhToan(),
                 hd.getTinhTrang() == 0 ? "Chua thanh toan" : "Da thanh toan"
@@ -38,24 +46,36 @@ public class JPBanHang extends javax.swing.JPanel {
             stt++;
         }
     }
-    
-        private void loadTablChiTietSP(List<ChiTietSPCustom> list) {
-            DefaultTableModel dtm = (DefaultTableModel) this.tblChiTietSP.getModel();
-            dtm.setRowCount(0);
-            int stt = 1;
-            for (ChiTietSPCustom ctsp : list) {
-                Object[] rowData = {
-                    stt,
-                    "Chuan bi update anh",
-                    ctsp.getTenSp(),
-                    ctsp.getGiaBan(),
-                    ctsp.getSoLuong()
-                };
-                dtm.addRow(rowData);
-                stt++;
-            }
+
+    private void loadTablChiTietSP(List<ChiTietSPCustom> list) {
+        DefaultTableModel dtm = (DefaultTableModel) this.tblChiTietSP.getModel();
+        dtm.setRowCount(0);
+        int stt = 1;
+        for (ChiTietSPCustom ctsp : list) {
+            Object[] rowData = {
+                stt,
+                "Chuan bi update anh",
+                ctsp.getTenSp(),
+                ctsp.getGiaBan(),
+                ctsp.getSoLuong()
+            };
+            dtm.addRow(rowData);
+            stt++;
         }
-    
+    }
+
+    private HoaDon getValidate() {
+        HoaDon hd = new HoaDon();
+        
+        
+        double rand = Math.random() + 1;
+        int randm = (int)rand * 9999;
+        String maRd = "HD" + randm;
+        hd.setMa(maRd);
+        
+        
+        return hd;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -153,6 +173,11 @@ public class JPBanHang extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblHoaDonMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblHoaDon);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,6 +222,11 @@ public class JPBanHang extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblChiTietSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblChiTietSPMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblChiTietSP);
@@ -472,6 +502,11 @@ public class JPBanHang extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable2);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -506,6 +541,18 @@ public class JPBanHang extends javax.swing.JPanel {
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 540, 190));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHoaDonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblHoaDonMouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void tblChiTietSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChiTietSPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblChiTietSPMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
