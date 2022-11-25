@@ -7,20 +7,18 @@ package com.view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
- *
- * @author ADMIN
- */
+
 public class Main extends javax.swing.JFrame {
 
-   private JPanel jPanel;
+//   private JPanel jPanel;
+   private JPanel jpHoaDon;
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
-        jPanel = new JPHoaDon();
+        jpHoaDon = new JPBanHang();
        
         container.removeAll();
-        container.add(jPanel);
+        container.add(jpHoaDon);
         container.validate();
     }
 
@@ -32,19 +30,10 @@ public class Main extends javax.swing.JFrame {
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
-        container.setLayout(containerLayout);
-        containerLayout.setHorizontalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
-        );
-        containerLayout.setVerticalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(container, java.awt.BorderLayout.CENTER);
+        container.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 875, 625));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
