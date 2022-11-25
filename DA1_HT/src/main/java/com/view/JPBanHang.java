@@ -20,7 +20,7 @@ public class JPBanHang extends javax.swing.JPanel {
 
     private void loadTable(List<HoaDonCustom> list) {
 //        DefaultTableModel dtm = (DefaultTableModel) this.tblHoaDon.getModel();
-        dtm.setRowCount(0);
+//        dtm.setRowCount(0);
         
         int stt = 1;
         
@@ -34,7 +34,7 @@ public class JPBanHang extends javax.swing.JPanel {
                 h.getNgayThanhToan(),
                 h.getTinhTrang() == 0 ? "Chua Thanh Toan" : "Da Thanh Toan"
             };
-            dtm.addRow(rowData);
+//            dtm.addRow(rowData);
             stt++;
         }
     }
