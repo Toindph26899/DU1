@@ -1,4 +1,3 @@
-
 package com.view;
 
 import java.awt.Color;
@@ -6,17 +5,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class Main extends javax.swing.JFrame {
 
 //   private JPanel jPanel;
-   private JPanel jpHoaDon;
+    private JPanel jpHoaDon;
+
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -47,6 +45,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         btnHoaDon.setText("Hóa Đơn");
+        btnHoaDon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHoaDonActionPerformed(evt);
+            }
+        });
 
         btnNhanVien.setText("Nhân Viên");
 
@@ -117,24 +120,32 @@ public class Main extends javax.swing.JFrame {
 
     private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
         jpHoaDon = new JPBanHang();
-        
+
         container.removeAll();
         container.add(jpHoaDon);
         container.validate();
     }//GEN-LAST:event_btnBanHangActionPerformed
 
-    public void changeColorBtn(String chucnang, JLabel ...args){
+    private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoaDonActionPerformed
+        jpHoaDon = new JPHoaDon();
+
+        container.removeAll();
+        container.add(jpHoaDon);
+        container.validate();
+    }//GEN-LAST:event_btnHoaDonActionPerformed
+
+    public void changeColorBtn(String chucnang, JLabel... args) {
         for (JLabel _lstCN1 : args) {
             if (_lstCN1.getText().equalsIgnoreCase(chucnang)) {
-                _lstCN1.getParent().setBackground(new Color(125,220,125));
+                _lstCN1.getParent().setBackground(new Color(125, 220, 125));
                 continue;
             }
-            _lstCN1.getParent().setBackground(new Color(125,190,125));
+            _lstCN1.getParent().setBackground(new Color(125, 190, 125));
         }
     }
-     
+
     public static void main(String args[]) {
- 
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
