@@ -3,7 +3,6 @@ package com.repositories.impl;
 import com.config.HibernateUtils;
 import com.custommodel.HoaDonCustom;
 import com.entities.HoaDon;
-import com.entities.NhanVien;
 import com.repositories.IHoaDonRepotirory;
 import java.util.ArrayList;
 import java.util.Date;

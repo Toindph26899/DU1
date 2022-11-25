@@ -13,4 +13,8 @@ public interface IHoaDonService {
     Boolean update(HoaDon h, String id);
 
     Boolean delete(String id);
+
+    HoaDon getOneHd(String id);
+
+    List<HoaDon> listHdToChuaThanhToan(int tinhTrang);
 }

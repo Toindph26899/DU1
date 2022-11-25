@@ -19,17 +19,27 @@ public class HoaDonService implements IHoaDonService{
 
     @Override
     public Boolean add(HoaDon h) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repo_HoaDon.add(h);
     }
 
     @Override
     public Boolean update(HoaDon h, String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repo_HoaDon.update(h, id);
     }
 
     @Override
     public Boolean delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repo_HoaDon.delete(id);
+    }
+
+    @Override
+    public HoaDon getOneHd(String id) {
+        return repo_HoaDon.getOneHd(id);
+    }
+
+    @Override
+    public List<HoaDon> listHdToChuaThanhToan(int tinhTrang) {
+        return repo_HoaDon.listHdToChuaThanhToan(tinhTrang);
     }
     
     public static void main(String[] args) {
